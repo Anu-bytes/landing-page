@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "eslint ."
+    "dev": "next dev",
+    "lint": "eslint .",
+    "start": "next start"
   },
   "dependencies": {
+    "@eslint/eslintrc": "latest",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "1.2.2",
     "@radix-ui/react-alert-dialog": "1.1.4",
@@ -37,7 +38,8 @@
     "@radix-ui/react-toggle": "1.1.1",
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
-    "@vercel/analytics": "1.3.1",
+    "@vercel/analytics": "latest",
+    "astro": "5.15.8",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -48,6 +50,7 @@
     "lucide-react": "^0.454.0",
     "next": "16.0.3",
     "next-themes": "^0.4.6",
+    "path": "latest",
     "react": "19.2.0",
     "react-day-picker": "9.8.0",
     "react-dom": "19.2.0",
@@ -55,11 +58,11 @@
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.4",
     "sonner": "^1.7.4",
-    "tailwind-merge": "^3.3.1",
+    "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
+    "url": "latest",
     "vaul": "^0.9.9",
-    "zod": "3.25.76",
-    "astro": "5.15.8"
+    "zod": "3.25.76"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.9",
