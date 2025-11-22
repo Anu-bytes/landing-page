@@ -24,28 +24,28 @@ A modern, responsive landing page built with Next.js, React, and Tailwind CSS. T
 
 1. Clone the repository:
 
-```bash
+\`\`\`bash
 git clone https://github.com/Anu-bytes/landing-page.git
 cd landing-page
-```
+\`\`\`
 
 2. Install dependencies:
 
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 3. Run the development server:
 
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ## 🏗️ Project Structure
 
-```
+\`\`\`
 anubyte-app/
 ├── app/                 # Next.js app directory
 │   ├── layout.tsx      # Root layout
@@ -61,7 +61,7 @@ anubyte-app/
 │   └── footer.tsx      # Footer component
 ├── lib/                # Utility functions
 └── public/             # Static assets
-```
+\`\`\`
 
 ## 🎨 Components
 

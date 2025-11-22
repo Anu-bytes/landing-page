@@ -1,18 +1,19 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { ArrowRight, Calendar, Clock, Mail, Phone, User, Loader2 } from "lucide-react";
-import emailjs from "@emailjs/browser";
+import type React from "react"
+import { useEffect, useState } from "react"
+import { ArrowRight, Calendar, Clock, Mail, Phone, User, Loader2 } from "lucide-react"
+import emailjs from "@emailjs/browser"
 
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 export default function CTA() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<{ type: "success" | "error" | null; message: string }>({
     type: null,
     message: "",
-  });
+  })
 
   const [formData, setFormData] = useState({
     name: "",
@@ -21,38 +22,42 @@ export default function CTA() {
     message: "",
     preferredDate: "",
     preferredTime: "",
-  });
+  })
+
+  useEffect(() => {
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    if (publicKey) {
+      emailjs.init(publicKey)
+    }
+  }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus({ type: null, message: "" });
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus({ type: null, message: "" })
 
     try {
-      // EmailJS configuration - these should be set in your .env.local file
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
-      const email = process.env.NEXT_PUBLIC_EMAIL || "";
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ""
+      const recipientEmail = process.env.NEXT_PUBLIC_EMAIL || ""
 
-      if (!serviceId || !templateId || !publicKey) {
-        throw new Error("EmailJS configuration is missing. Please check your environment variables.");
+      if (!serviceId || !templateId || !recipientEmail) {
+        throw new Error("EmailJS configuration is missing")
       }
 
       const templateParams = {
         title: "New Contact Form Submission - Anubyte",
         name: formData.name,
-        email: email,
+        email: recipientEmail,
         message: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}\nPreferred Date: ${formData.preferredDate}\nPreferred Time: ${formData.preferredTime}`,
-      };
+      }
 
-      // Send email via EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      await emailjs.send(serviceId, templateId, templateParams)
 
       setSubmitStatus({
         type: "success",
         message: "Thank you! We've received your message and will get back to you soon.",
-      });
+      })
 
       // Reset form
       setFormData({
@@ -62,35 +67,35 @@ export default function CTA() {
         message: "",
         preferredDate: "",
         preferredTime: "",
-      });
+      })
 
       // Close dialog after 2 seconds
       setTimeout(() => {
-        setIsOpen(false);
-        setSubmitStatus({ type: null, message: "" });
-      }, 2000);
+        setIsOpen(false)
+        setSubmitStatus({ type: null, message: "" })
+      }, 2000)
     } catch (error) {
-      console.error("EmailJS error:", error);
+      console.error("EmailJS error:", error)
       setSubmitStatus({
         type: "error",
         message: "Sorry, there was an error sending your message. Please try again or contact us directly.",
-      });
+      })
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
   const handleChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
-      | React.ChangeEvent<HTMLSelectElement>
+      | React.ChangeEvent<HTMLSelectElement>,
   ) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
 
   return (
     <section className="py-32 px-4 sm:px-6 lg:px-8 bg-background relative overflow-hidden section-divider" id="contact">
@@ -310,5 +315,5 @@ export default function CTA() {
         </DialogContent>
       </Dialog>
     </section>
-  );
+  )
 }
