@@ -33,6 +33,7 @@ export default function CTA() {
       const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "";
       const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "";
       const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || "";
+      const email = process.env.NEXT_PUBLIC_EMAIL || "";
 
       if (!serviceId || !templateId || !publicKey) {
         throw new Error("EmailJS configuration is missing. Please check your environment variables.");
@@ -41,7 +42,7 @@ export default function CTA() {
       const templateParams = {
         title: "New Contact Form Submission - Anubyte",
         name: formData.name,
-        email: "omarrashad1346@gmail.com",
+        email: email,
         message: `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}\nPreferred Date: ${formData.preferredDate}\nPreferred Time: ${formData.preferredTime}`,
       };
 
