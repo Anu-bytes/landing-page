@@ -7,6 +7,9 @@
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start"
+    "dev": "next dev",
+    "lint": "eslint .",
+    "start": "next start"
   },
   "dependencies": {
     "@emailjs/browser": "latest",
@@ -42,6 +45,8 @@
     "@radix-ui/react-tooltip": "1.1.6",
     "@vercel/analytics": "latest",
     "astro": "5.15.8",
+    "@vercel/analytics": "latest",
+    "astro": "5.15.8",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -55,6 +60,7 @@
     "next": "16.0.3",
     "next-themes": "^0.4.6",
     "path": "latest",
+    "path": "latest",
     "react": "19.2.0",
     "react-day-picker": "9.8.0",
     "react-dom": "19.2.0",
@@ -63,9 +69,12 @@
     "recharts": "2.15.4",
     "sonner": "^1.7.4",
     "tailwind-merge": "^2.5.5",
+    "tailwind-merge": "^2.5.5",
     "tailwindcss-animate": "^1.0.7",
     "url": "latest",
+    "url": "latest",
     "vaul": "^0.9.9",
+    "zod": "3.25.76"
     "zod": "3.25.76"
   },
   "devDependencies": {

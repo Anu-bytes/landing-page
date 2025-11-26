@@ -40,7 +40,7 @@ export default function Header() {
 
         {/* Mobile Right Actions */}
         <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <button
             className="p-2 rounded-lg hover:bg-muted transition-colors"
             onClick={() => setIsOpen(!isOpen)}
@@ -55,7 +55,7 @@ export default function Header() {
       {isOpen && (
         <div className="md:hidden bg-background border-b border-border animate-slide-in-up">
           <div className="px-4 py-4 space-y-4">
-            {["Services", "Portfolio", "About", "Contact"].map((item) => (
+            {["Services", "About", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
