@@ -6307,9 +6307,3 @@ snapshots:
   zod@3.25.76: {}
 
   zwitch@2.0.4: {}
-
-lockfileVersion: '9.0'
-
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false

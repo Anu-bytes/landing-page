@@ -7,9 +7,6 @@
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start"
-    "dev": "next dev",
-    "lint": "eslint .",
-    "start": "next start"
   },
   "dependencies": {
     "@emailjs/browser": "latest",
@@ -74,7 +71,6 @@
     "url": "latest",
     "url": "latest",
     "vaul": "^0.9.9",
-    "zod": "3.25.76"
     "zod": "3.25.76"
   },
   "devDependencies": {
